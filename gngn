@@ -1,0 +1,2 @@
+// This runs automatically on every page, but stays invisible.
+console.log("Silent Extension active on:", window.location.href);
