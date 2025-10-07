@@ -1,0 +1,26 @@
+        (function() {
+            'use strict';
+
+            // Use a MutationObserver to detect when the element appears, as some pages load dynamically
+            const observer = new MutationObserver(mutations => {
+                mutations.forEach(mutation => {
+                    // Check if the element you want to hide has been added to the DOM
+                    const elementToHide = document.querySelector('#extension-puzzle-icon'); // Replace with the actual selector
+                    if (elementToHide) {
+                        elementToHide.style.display = 'none'; // Hide the element
+                    }
+                });
+            });
+
+            // Start observing the document for changes to the DOM
+            observer.observe(document.body, {
+                childList: true, // Watch for additions or removals of child nodes
+                subtree: true    // Watch for changes in the entire document
+            });
+
+            // Also, attempt to hide it immediately on script load
+            const initialElement = document.querySelector('YOUR_CSS_SELECTOR');
+            if (initialElement) {
+                initialElement.style.display = 'none';
+            }
+        })();
